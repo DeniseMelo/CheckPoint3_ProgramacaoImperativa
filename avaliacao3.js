@@ -3,7 +3,7 @@ class alunos {
         this.nome = nome
         this.qtFaltas = qtFaltas
         this.notas = notas
-        this.calcularMedia = ()=>{
+        this.calcularMedia = function(){
             let soma = 0
             for (let i = 0; i < this.notas.length; i++) {
                 soma = soma + this.notas[i]
@@ -11,7 +11,7 @@ class alunos {
             const media = soma / this.notas.length
             return media
         }
-        this.faltas = ()=> {
+        this.faltas = function() {
             this.qtFaltas ++
             return this.qtFaltas
         }
