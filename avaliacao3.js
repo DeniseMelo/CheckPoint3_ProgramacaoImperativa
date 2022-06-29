@@ -3,7 +3,7 @@ class alunos {
         this.nome = nome
         this.qtFaltas = qtFaltas
         this.notas = notas
-        this.calcularMedia = function(){
+        this.calcularMedia = ()=>{
             let soma = 0
             for (let i = 0; i < this.notas.length; i++) {
                 soma = soma + this.notas[i]
@@ -11,7 +11,7 @@ class alunos {
             const media = soma / this.notas.length
             return media
         }
-        this.faltas = function() {
+        this.faltas = ()=> {
             this.qtFaltas ++
             return this.qtFaltas
         }
@@ -28,7 +28,7 @@ console.log(aluno2.calcularMedia())
 console.log(aluno2.faltas())
 console.log( 
              `O seguinte aluno : ${aluno1.nome} passou com louvor, com apenas ${aluno1.faltas()} faltas, 
-              e recebeu as seguintes notas:${aluno1.notas}. Sua média final é de: ${aluno1.calcularMedia()}`)
+                e recebeu as seguintes notas:${aluno1.notas}. Sua média final é de: ${aluno1.calcularMedia()}`)
 
 let curso = {
     nomeCurso: 'Digitalhouse',
@@ -46,12 +46,13 @@ let curso = {
         }
 
         let aluno = this.listaAlunos[nomeAluno];
-        
+      
         if (aluno.qtFaltas < this.maximoDeFaltas && aluno.calcularMedia() >= this.notaAprovacao 
         || aluno.calcularMedia() >= this.notaAprovacao * 1.1){
-            return true
+            return 'Foi aprovado(a) '//true
+           
         } else {
-            return false
+            return 'Infelizmente, não foi aprovado(a) '//false
         }
     },
     alunosAprovados() {
@@ -67,14 +68,11 @@ let curso = {
 let aluno5 = new alunos('Joao Matheus', 2, [6, 8, 6, 5]);
 let aluno6 = new alunos('Kelvin', 2, [6, 8, 6, 5]);
 curso.cadastrarAluno(aluno5);
+curso.cadastrarAluno(aluno6);
 
-console.log(curso.listaAlunos[1].nome);
-console.log(curso.aprovado(1));
 
-console.log(curso.listaAlunos[4].nome);
- console.log(curso.aprovado(4));
+console.log(`O seguinte aluno: ${curso.listaAlunos[0].nome} foi aprovado? ${curso.aprovado(0)}`)
+console.log(`O seguinte aluno: ${curso.listaAlunos[2].nome} foi aprovado? ${curso.aprovado(2)}`)
 
-console.log(curso.listaAlunos[5].nome);
-console.log(curso.aprovado(7));
 
 console.log(curso.alunosAprovados());
